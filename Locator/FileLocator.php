@@ -68,15 +68,15 @@ class FileLocator extends BaseFileLocator
 
         $defaultPathPatterns = array(
             'app_resource' => array(
-                '%app_path%/themes/%current_theme%/%template%',
+                '%app_path%/views/themes/%current_theme%/%template%',
                 '%app_path%/views/%template%',
             ),
             'bundle_resource' => array(
                 '%bundle_path%/Resources/themes/%current_theme%/%template%',
             ),
             'bundle_resource_dir' => array(
-                '%dir%/themes/%current_theme%/%bundle_name%/%template%',
-                '%dir%/%bundle_name%/%override_path%',
+                '%dir%/views/themes/%current_theme%/%bundle_name%/%template%',
+                '%dir%/views/%bundle_name%/%override_path%',
             ),
         );
 
