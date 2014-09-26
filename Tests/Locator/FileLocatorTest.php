@@ -82,15 +82,15 @@ class FileLocatorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(
             array(
                 'app_resource' => array(
-                    '%app_path%/themes/%current_theme%/%template%',
+                    '%app_path%/views/themes/%current_theme%/%template%',
                     '%app_path%/views/%template%',
                 ),
                 'bundle_resource' => array(
                     '%bundle_path%/Resources/themes/%current_theme%/%template%',
                 ),
                 'bundle_resource_dir' => array(
-                    '%dir%/themes/%current_theme%/%bundle_name%/%template%',
-                    '%dir%/%bundle_name%/%override_path%',
+                    '%dir%/views/themes/%current_theme%/%bundle_name%/%template%',
+                    '%dir%/views/%bundle_name%/%override_path%',
                 ),
             ),
             $property->getValue($fileLocator)
@@ -322,7 +322,7 @@ class FileLocatorTest extends \PHPUnit_Framework_TestCase
         $fileLocator = new FileLocator($kernel, $activeTheme, $this->getFixturePath() . '/rootdir/Resources');
 
         $file = $fileLocator->locate('@ThemeBundle/Resources/views/rootTemplate', $this->getFixturePath(), true);
-        $this->assertEquals($this->getFixturePath().'/rootdir/Resources/themes/foo/LiipMockLocateRootDirectory/rootTemplate', $file);
+        $this->assertEquals($this->getFixturePath().'/rootdir/Resources/views/themes/foo/LiipMockLocateRootDirectory/rootTemplate', $file);
     }
 
     /**
@@ -336,7 +336,7 @@ class FileLocatorTest extends \PHPUnit_Framework_TestCase
         $fileLocator = new FileLocator($kernel, $activeTheme, $this->getFixturePath() . '/rootdir/Resources');
 
         $file = $fileLocator->locate('@ThemeBundle/Resources/views/override', $this->getFixturePath(), true);
-        $this->assertEquals($this->getFixturePath().'/rootdir/Resources/LiipMockLocateOverrideDirectory/views/override', $file);
+        $this->assertEquals($this->getFixturePath().'/rootdir/Resources/views/LiipMockLocateOverrideDirectory/views/override', $file);
     }
 
     /**
